@@ -1,65 +1,40 @@
-# Postgres.js Example
+# Contact Secu
 
-An example using [Postgres.js](https://github.com/porsager/postgres) in a Next.js project.
+Contact Secu est une application Next.js qui utilise Postgres.js pour gérer une liste de contacts.
 
-## Deploy your own
+## Comment utiliser
 
-Once you have access to [the environment variables you'll need](#configure-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Configuration
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-postgres&project-name=with-postgres&repository-name=with-postgres&env=DATABASE_URL&envDescription=Required%20to%20connect%20the%20app%20with%20Postgres)
+1. Installez les dépendances du projet avec `npm install`.
 
-## How to use
+2. Configurez votre base de données Postgres localement ou utilisez votre fournisseur préféré.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-postgres with-postgres-app
-```
-
-```bash
-yarn create next-app --example with-postgres with-postgres-app
-```
-
-```bash
-pnpm create next-app --example with-postgres with-postgres-app
-```
-
-## Configuration
-
-### Set up a Postgres database
-
-Set up a Postgres database locally or use your favorite provider.
-
-### Configure environment variables
-
-Copy the `.env.local.example` file in this directory to `.env.local` (this will be ignored by Git):
+3. Copiez le fichier `.env.local.example` dans ce répertoire en `.env.local` (ceci sera ignoré par Git) :
 
 ```bash
 cp .env.local.example .env.local
 ```
 
-Set the `DATABASE_URL` variable in `.env.local` to the connection uri of your postgres database.
+Fonctionnalités de sécurité :
 
-### Apply migrations
+Le projet intègre plusieurs fonctionnalités et pratiques pour renforcer la sécurité :
 
-To setup up the migrations, use:
+Joi pour la validation de données :
+Utilisez Joi pour valider les schémas des données entrantes, assurant ainsi que les données envoyées à l'API respectent les formats attendus.
 
-```bash
-npm run migrate:up
-# or
-yarn migrate:up
-```
+Hachage de mot de passe :
+Les mots de passe sont hachés avant d'être stockés en base de données, offrant une couche de protection supplémentaire contre les accès non autorisés.
 
-### Start Next.js in development mode
+OWASP ZAP pour les tests de sécurité :
+Intégré dans le pipeline d'intégration continue via .github/workflows/zap.yml, OWASP ZAP automatise la recherche de vulnérabilités de sécurité dans l'application.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Sécurité avec Next.js
+Next.js offre plusieurs mécanismes pour protéger votre application :
 
-Your app should now be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-## Deploy on Vercel
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Protection contre les XSS : Next.js échappe automatiquement les contenus pour prévenir les attaques XSS.
+Protection CSRF : Bien que Next.js n'offre pas de solution CSRF out-of-the-box pour les API routes, il est recommandé d'utiliser des jetons CSRF ou des techniques similaires pour les formulaires.
+Isolation des routes API : Les routes API sont isolées et gérées séparément des pages, réduisant le risque d'exposition accidentelle de logique ou de données côté serveur.
+Support HTTPS : Encourage l'utilisation de HTTPS pour sécuriser la communication entre le client et le serveur.
+Content Security Policy (CSP) : Implémentez CSP pour réduire le risque d'attaques XSS et autres injections.
+HTTP Strict Transport Security (HSTS) : Ajoutez HSTS pour forcer les navigateurs à utiliser des connexions sécurisées.
