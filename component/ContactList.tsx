@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Contact } from '../lib/contact';
+import React from 'react';
 
 function ContactList() {
     const [contacts, setContacts] = useState<Contact[]>([]);
@@ -18,6 +19,7 @@ function ContactList() {
 
         fetchContacts();
     }, []);
+
 
     return (
         <div>
