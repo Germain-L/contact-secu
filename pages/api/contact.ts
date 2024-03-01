@@ -20,7 +20,9 @@ export default async function handler(
             return res.status(500).json({success: false, error: (error as Error).message || 'An error occurred'});
         }
     } else {
-        res.setHeader('Allow', ['POST']);
+        res.setHeader('Allow', ['POST', 'GET']);
         return res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
+
+
