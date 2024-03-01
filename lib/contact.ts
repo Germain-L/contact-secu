@@ -29,7 +29,7 @@ export async function remove(id: number) {
   `;
 }
 
-async function create(contact: Omit<Contact, 'id' | 'submitted_at'>) {
+export async function create(contact: Omit<Contact, 'id' | 'submitted_at'>) {
   const { error } = schema.validate(contact);
   if (error) {
     throw new Error(`Validation error: ${error.details[0].message}`);
