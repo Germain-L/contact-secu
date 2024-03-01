@@ -22,9 +22,20 @@ function ProtectedPage() {
     if (!authenticated) {
         return (
             <div className="flex justify-center items-center min-h-screen bg-black">
-                <div className="text-center">
-                    <input className="text-black" type="password" value={password} onChange={handlePasswordChange} />
-                    <button className="bg-blue-500 text-white p-2 rounded" onClick={handleLogin}>Login</button>
+                <div className="text-center p-6 bg-gray-800 rounded-lg shadow-lg">
+                    <input 
+                        className="text-black p-2 rounded bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white" 
+                        type="password" 
+                        value={password} 
+                        onChange={handlePasswordChange} 
+                        placeholder="Enter password"
+                    />
+                    <button 
+                        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                        onClick={handleLogin}
+                    >
+                        Login
+                    </button>
                 </div>
             </div>
         );
@@ -32,8 +43,8 @@ function ProtectedPage() {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-black text-white">
-            <div>
-                <h1>Protected content</h1>
+            <div className="p-6 bg-gray-800 rounded-lg shadow-lg">
+                <h1 className="text-xl font-bold mb-4">Protected content</h1>
                 <ContactList />
             </div>
         </div>

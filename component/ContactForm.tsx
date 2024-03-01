@@ -1,5 +1,5 @@
-// components/ContactForm.tsx
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+
 interface ContactFormState {
     name: string;
     email: string;
@@ -33,26 +33,26 @@ export default function ContactForm() {
             });
             const data = await response.json();
             if (data.success) {
-                // Handle success (e.g., show a success message, clear the form)
+                // Handle success
                 console.log('Form submitted successfully:', data.contact);
                 setFormData({ name: '', email: '', message: '' }); // Clear form
                 alert('Thank you for your message. We will get back to you soon!');
             } else {
-                // Handle server-side validation error or other errors
+                // Handle errors
                 console.error('Form submission error:', data.error);
                 alert('Failed to submit the form. Please try again.');
             }
         } catch (error) {
-            // Handle network errors or unexpected issues
+            // Handle unexpected errors
             console.error('Submission error:', error);
             alert('An error occurred while submitting the form. Please check your internet connection and try again.');
         }
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-gray-800 p-6 rounded-lg shadow">
             <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
+                <label htmlFor="name" className="block text-sm font-medium text-white">Name:</label>
                 <input
                     type="text"
                     id="name"
@@ -60,11 +60,11 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-indigo-500 text-black sm:text-sm"
                 />
             </div>
             <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
+                <label htmlFor="email" className="block text-sm font-medium text-white">Email:</label>
                 <input
                     type="email"
                     id="email"
@@ -72,18 +72,19 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-indigo-500 text-black sm:text-sm"
                 />
             </div>
             <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message:</label>
+                <label htmlFor="message" className="block text-sm font-medium text-white">Message:</label>
                 <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    rows={4}
+                    className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-indigo-500 text-black sm:text-sm"
                 ></textarea>
             </div>
             <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
