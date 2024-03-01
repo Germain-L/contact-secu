@@ -40,3 +40,5 @@ Content Security Policy (CSP) : Implémentez CSP pour réduire le risque d'attaq
 HTTP Strict Transport Security (HSTS) : Ajoutez HSTS pour forcer les navigateurs à utiliser des connexions sécurisées.
 
 Dependabot : un outil d'automatisation qui surveille les dépendances de votre projet pour identifier les versions obsolètes ou vulnérables. Il propose des mises à jour via des pull requests pour maintenir le projet à jour et sécurisé. En automatisant la gestion des dépendances, Dependabot aide à prévenir les failles de sécurité et améliore la maintenance du code, tout en économisant du temps et des efforts de développement.
+
+ESLint : un outil d'analyse statique du code qui aide les développeurs à identifier et à corriger des problèmes de syntaxe, des erreurs potentielles et à appliquer un style de codage cohérent dans leur projet JavaScript ou TypeScript. Il est hautement configurable, permettant aux équipes de définir leurs propres règles ou d'adopter des conventions standardisées, contribuant ainsi à améliorer la qualité du code, à faciliter la maintenance et à encourager les bonnes pratiques de programmation.
