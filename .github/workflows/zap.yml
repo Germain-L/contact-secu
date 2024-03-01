@@ -1,0 +1,29 @@
+name: OWASP ZAP Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: OWASP ZAP Scan
+      uses: zaproxy/action-baseline@v0.4.0
+      with:
+        target: 'https://yourwebsite.com' # Replace this with your web application's URL
+        rules_file_name: '.zap/rules.tsv' # Optional: Path to a file containing rules to ignore
+        cmd_options: '-J report.json' # Optional: Additional command line options for the ZAP scan
+
+    - name: Upload ZAP Scan Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: zap-report
+        path: report.json
