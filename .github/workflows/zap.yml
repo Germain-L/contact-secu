@@ -18,7 +18,7 @@ jobs:
     - name: OWASP ZAP Scan
       uses: zaproxy/action-baseline@v0.4.0
       with:
-        target: 'https://yourwebsite.com' # Replace this with your web application's URL
+        target: 'https://contact-secu-production.up.railway.app' # Replace this with your web application's URL
         # rules_file_name: '.zap/rules.tsv' # Optional: Path to a file containing rules to ignore
         cmd_options: '-J report.json' # Optional: Additional command line options for the ZAP scan
 
