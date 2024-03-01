@@ -38,3 +38,5 @@ Isolation des routes API : Les routes API sont isolées et gérées séparément
 Support HTTPS : Encourage l'utilisation de HTTPS pour sécuriser la communication entre le client et le serveur.
 Content Security Policy (CSP) : Implémentez CSP pour réduire le risque d'attaques XSS et autres injections.
 HTTP Strict Transport Security (HSTS) : Ajoutez HSTS pour forcer les navigateurs à utiliser des connexions sécurisées.
+
+Dependabot : un outil d'automatisation qui surveille les dépendances de votre projet pour identifier les versions obsolètes ou vulnérables. Il propose des mises à jour via des pull requests pour maintenir le projet à jour et sécurisé. En automatisant la gestion des dépendances, Dependabot aide à prévenir les failles de sécurité et améliore la maintenance du code, tout en économisant du temps et des efforts de développement.
