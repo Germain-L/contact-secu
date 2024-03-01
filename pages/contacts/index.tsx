@@ -1,6 +1,7 @@
 // contacts/index.tsx
 import { ChangeEvent, useState } from 'react';
 import ContactList from '../../component/ContactList';
+import React from 'react';
 
 function ProtectedPage() {
     const [password, setPassword] = useState<string>('');

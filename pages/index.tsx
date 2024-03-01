@@ -1,6 +1,6 @@
 // index.tsx
-import Link from 'next/link';
 import ContactForm from "../component/ContactForm";
+import React from 'react';
 
 const HomePage = () => {
     return (
